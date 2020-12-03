@@ -10,9 +10,9 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
-	}
+		return !weekday || vacation;
 
+}
 	/*
 	 2. We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling.
 	 We are in trouble if they are both smiling or if neither of them is smiling. Return true if we
@@ -22,7 +22,9 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
-		return false;
+		return aSmile && bSmile || !aSmile && !bSmile;
+		
+		
 	}
 
 	/*
@@ -32,7 +34,14 @@ public class Exercises {
 	 sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
-		return 0;
+		if (a != b) {
+			return a + b;
+		}
+		
+		else {
+			return (a + b) * 2;
+		}
+			
 	}
 
 	/*
@@ -45,7 +54,12 @@ public class Exercises {
 	 diff21(-10) → 31
 	 */
 	public int diff21(int n) {
-		return 0;
+		if(n <= 21) {
+			return 21 - n;
+		}
+		else {
+			return (n - 21) *2;
+		}
 	}
 
 	/*
@@ -57,7 +71,7 @@ public class Exercises {
 	 parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
-		return false;
+		return (hour < 7 || hour > 20) && talking;
 	}
 
 	/*
@@ -67,7 +81,7 @@ public class Exercises {
 	 makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
-		return false;
+		return (a == 10 || b == 10) || ( a + b == 10);
 	}
 
 	/*
@@ -78,7 +92,18 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
-		return false;
+		
+			if( (a < 0 ^ b < 0) && !negative){
+				return true;
+			}
+			
+			else if((a < 0 && b < 0) && negative) {
+				return true;
+			}
+			else {
+				return false;
+			}
+			
 	}
 
 	/*
@@ -89,7 +114,7 @@ public class Exercises {
 	 or35(8) → false
 	 */
 	public boolean or35(int n) {
-		return false;
+		return (n >= 0) && (n % 3 == 0 || n % 5 == 0);
 	}
 
 	/*
@@ -99,7 +124,7 @@ public class Exercises {
 	 icyHot(2, 120) → false
 	 */
 	public boolean icyHot(int temp1, int temp2) {
-		return false;
+		return (temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0);
 	}
 
 	/*
@@ -109,7 +134,7 @@ public class Exercises {
 	 in1020(8, 99) → false
 	 */
 	public boolean in1020(int a, int b) {
-		return false;
+		return (a>= 10 && a <= 20) || (b >= 10 && b <= 20);
 	}
 
 	/*
@@ -120,7 +145,9 @@ public class Exercises {
 	 hasTeen(20, 10, 13) → true
 	 */
 	public boolean hasTeen(int a, int b, int c) {
-		return false;
+		return (a >=13 && a <= 19) || 
+				(b >=13 && b <= 19) || 
+				(c >=13 && c <= 19) ;
 	}
 
 	/*
@@ -131,7 +158,8 @@ public class Exercises {
 	 loneTeen(13, 13) → false
 	 */
 	public boolean loneTeen(int a, int b) {
-		return false;
+		return (a >= 13 && a <= 19) != (b >=13 && b <= 19);
+				
 	}
 
 	/*
@@ -141,9 +169,17 @@ public class Exercises {
 	 intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
-		return 0;
+		if ( a >= b && a >= c) {
+			return a;
+		}
+		else if ( b >= a && b >= c ) {
+			return b;
+		}
+		else {
+			return c;
+		}
+	
 	}
-
 	/*
 	 14. Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are both
 	 in the range 40..50 inclusive.
@@ -153,6 +189,8 @@ public class Exercises {
 	 */
 	public boolean in3050(int a, int b) {
 		return false;
+		
+	
 	}
 
 	/*
@@ -163,8 +201,21 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
-		return 0;
+		
+		boolean aIn1020Range = a >= 10 && a <= 20;
+		boolean bIn1020Range = b >= 10 && b <= 20;
+		
+		if((aIn1020Range && bIn1020Range) && a > b) {
+			return a;
+		}
+		else if ((aIn1020Range && bIn1020Range) && b > a) {
+			return b;
+		}
+		else {
+			return 0;
+		}
 	}
+	
 
 	/*
 	 16. When squirrels get together for a party, they like to have cigars. A squirrel party is successful
