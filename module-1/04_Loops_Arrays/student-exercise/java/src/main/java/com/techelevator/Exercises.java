@@ -204,7 +204,23 @@ public class Exercises {
 	 * sum13([1, 1]) → 2 sum13([1, 2, 2, 1, 13]) → 6 sum13([1, 2, 2, 1, 13, 3])
 	 * → 6 sum13([1, 2, 2, 1, 13, 3, 4]) → 10
 	 */
-	
+
+
+	/* Something might be incorrect with this test, it says sum13([1, 2, 2, 1, 13, 3, 4]) → 10, 
+	but shouldn't it return 6 since 13,3,and 4 are omitted? */
+
+	public int sum13(int[] nums) {
+		int sum = 0;
+		for (int x = 0; (x < nums.length) && (nums[x] != 13); x++) {
+
+			if (nums[x] != 13) {
+				sum += nums[x];
+			}
+		}
+
+		return sum;
+	}
+
 	/*
 	 * 13. Given an array of ints, return true if the array contains a 2 next to a 2
 	 * somewhere. has22([1, 2, 2]) → true has22([1, 2, 1, 2]) → false has22([2,
@@ -217,17 +233,15 @@ public class Exercises {
 
 		int gotTwos = 0;
 
-		for (int i = 0; i < nums.length-1; i++) {
-			
-			if (nums[i] == 2 && nums[i+1] == 2 ) {
+		for (int i = 0; i < nums.length - 1; i++) {
+
+			if (nums[i] == 2 && nums[i + 1] == 2) {
 				gotTwos += 1;
 			}
 		}
 
 		return gotTwos >= 1;
 	}
-
-
 
 	/*
 	 * 14. Given an array of ints, return true if the array contains no 1's and no
