@@ -206,16 +206,20 @@ public class Exercises {
 	 */
 
 
-	/* Something might be incorrect with this test, it says sum13([1, 2, 2, 1, 13, 3, 4]) → 10, 
-	but shouldn't it return 6 since 13,3,and 4 are omitted? */
 
 	public int sum13(int[] nums) {
 		int sum = 0;
-		for (int x = 0; (x < nums.length) && (nums[x] != 13); x++) {
+		for (int x = 0; x < nums.length; x++) {
 
 			if (nums[x] != 13) {
 				sum += nums[x];
 			}
+			
+			if(nums[x] == 13) {
+			  sum += 0;
+			  x++;
+			}
+			
 		}
 
 		return sum;
