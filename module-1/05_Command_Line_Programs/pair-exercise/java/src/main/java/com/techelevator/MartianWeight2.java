@@ -23,18 +23,17 @@ Enter a series of Earth weights (space-separated): 98 235 185
  //do the calculation
  //  
  */
-public class MartianWeight {
+public class MartianWeight2 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Welcome to Mars, find out your weight here");
 		System.out.println("Enter a series of earth weights (space separated)");
+		String weightOnEarth = scanner.nextLine();
+		String[] weightAsIndividualStrings = weightOnEarth.split(" ");
 		
-		String earthWeights = scanner.nextLine();
-		String[] weightAsIndividualStrings = earthWeights.split(" ");
-		
-		double[] weights = new double[weightAsIndividualStrings.length];
+		double[] earthWeights = new double[weightAsIndividualStrings.length];
 		
 		for(int i = 0; i < weightAsIndividualStrings.length; i++) {
 			
@@ -44,15 +43,16 @@ public class MartianWeight {
 			
 			weight = weight * 0.378;
 			
-			weights[i] = weight;
+			earthWeights[i] = weight;
 		}
 			
 			System.out.println("Yay! We figured out your weight! Your weights are: ");
 			
-			for(int x = 0; x < weights.length; x++){
+			for(int x = 0; x < earthWeights.length; x++){
 				
-				double weight = weights[x];
-				System.out.print(weight + "mars pounds");
+				double weight = earthWeights[x];
+				double  = earthWeights[x];
+				System.out.print(weight + " mars pounds " + earthWeights);
 			}
 			System.out.println();
 		}

@@ -9,7 +9,9 @@ class DiscountCalculator {
      */
     public static void main(String[] args) {
 
-    	int[]   arrrr   = new int[10];
+    	int[]   
+
+    			= new int[10];
         Scanner scanner = new Scanner(System.in);
         
 
@@ -20,7 +22,7 @@ class DiscountCalculator {
         System.out.print("Enter the discount amount (w/out percentage): ");
         
         //read an input string from the command line....it better be shaped like a number or we have problems
-        String percentageString = scanner.nextLine();
+        String percentageString = scanner.();
         
         // convert the input string into a double...unless it's not shaped like a number, then we crash
         double percentDiscount = Double.parseDouble(percentageString);
@@ -44,6 +46,8 @@ class DiscountCalculator {
         // Need to parse each string into a double
         
         // create a double array to hold the prices
+        // this array is empty we just set the number of slots
+        
         double[] prices = new double[pricesAsIndividualStrings.length];
         
         

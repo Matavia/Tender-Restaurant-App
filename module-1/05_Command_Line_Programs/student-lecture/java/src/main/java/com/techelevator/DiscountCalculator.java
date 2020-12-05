@@ -10,6 +10,8 @@ class DiscountCalculator {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        
+        scanner.nextL                       
 
         System.out.println("Welcome to the Discount Calculator");
 
