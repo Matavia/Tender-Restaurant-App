@@ -48,12 +48,29 @@ public class TempConvert {
 		System.out.println((int)numTemp + "F" + " is " + (int)FCTempConversion + "C");
 	}
 		else if( tempType.toUpperCase().contains("C")) {
-			System.out.println((int)numTemp + "C" + " is " + (int)CFTempConversion + "F");
+			System.out.println((int)numTemp + "C" + " is " + (int)FCTempConversion + "F");
 		}
 
 			
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+		
+		
 
 	}
 

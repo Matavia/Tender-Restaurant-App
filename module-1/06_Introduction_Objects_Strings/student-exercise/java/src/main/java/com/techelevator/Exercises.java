@@ -9,7 +9,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		String nameIntro = "Hello " + name + "!";
+		return nameIntro;
 	}
 
 	/*
@@ -20,7 +21,8 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		String stringCombo = a + b + b + a;
+		return stringCombo;
 	}
 
 	/*
@@ -32,7 +34,9 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		String htmlString = "<" + tag + ">" + word + "</" + tag + ">";
+
+		return htmlString;
 	}
 
 	/*
@@ -44,7 +48,9 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		String fullOutString = out.substring(0,2) + word + out.substring(2,4);
+		return fullOutString;
+		
 	}
 
 	/*
@@ -55,7 +61,9 @@ public class Exercises {
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
+		String lastTwo = str.substring(str.length()-2); str.substring(str.length()-1);
+	
+		return lastTwo + lastTwo + lastTwo;
 	}
 
 	/*
@@ -67,7 +75,8 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+	
+		
 	}
 
 	/*
@@ -77,7 +86,8 @@ public class Exercises {
 	 firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+		String halfString = str.substring(0,str.length()/2);
+		return halfString;
 	}
 
 	/*
@@ -88,7 +98,9 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		String newStr = str.substring(1,(str.length()-1));
+		
+		return newStr;
 	}
 
 	/*
@@ -100,7 +112,16 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		if( a.length() > b.length()) {
+			return b + a + b;
+		}
+		
+		else{
+			return a + b + a;
+			
+		}
+		
+	
 	}
 
 	/*
@@ -110,8 +131,12 @@ public class Exercises {
 	 nonStart("java", "code") → "avaode"
 	 nonStart("shotl", "java") → "hotlava"
 	 */
+	
+	
 	public String nonStart(String a, String b) {
-		return null;
+		String newA = a.substring(1,a.length());
+		String newB = b.substring(1,b.length());
+		return newA + newB;
 	}
 
 	/*
@@ -122,7 +147,9 @@ public class Exercises {
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+		String withoutFirstTwo = str.replace(str.substring(0,2),"");
+		String firstTwo = str.substring(0,2);
+		return withoutFirstTwo + firstTwo;
 	}
 
 	/*
@@ -133,7 +160,9 @@ public class Exercises {
 	 right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		return null;
+		String withoutLastTwo = str.replace(str.substring(str.length()-2),"");
+		String lastTwo = str.substring((str.length()-2));
+		return lastTwo + withoutLastTwo;
 	}
 
 	/*
@@ -155,6 +184,9 @@ public class Exercises {
 	 withoutEnd2("ab") → ""
 	 */
 	public String withoutEnd2(String str) {
+		if(str.length() > 1) {
+			return 
+		}
 		return null;
 	}
 
@@ -187,7 +219,10 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		String firstHalf = str.substring(0,n);
+		String secondHalf = str.substring(str.length()-n);
+		
+		return firstHalf + secondHalf;
 	}
 
 	/*
@@ -199,6 +234,7 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
+		
 		return null;
 	}
 
@@ -221,8 +257,18 @@ public class Exercises {
 	 hasBad("xbadxx") → true
 	 hasBad("xxbadxx") → false
 	 */
-	public boolean hasBad(String str) {
-		return false;
+	public boolean hasBad(String str) {		
+		if(str.length() > 3) {
+		return
+		(str.substring(0,3).equals("bad")) || 
+		(str.substring(1,4).equals("bad"));
+		}
+		else if(str.length() == 3) {
+			return str.substring(0).equals("bad");
+		}
+		else {
+			return false;
+		}
 	}
 
 	/*
@@ -232,7 +278,8 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		
+		return ;
 	}
 
 	/*
@@ -263,7 +310,8 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
-		return false;
+		
+		return null;
 	}
 
 	/*
@@ -273,7 +321,7 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		
 	}
 
 	/*
@@ -315,7 +363,10 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		char[] indchar = str.toCharArray();
+		String newString = String.copyValueOf(indchar);
+		
+		return newString;
 	}
 
 	/*
@@ -326,7 +377,8 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		String newString = str.replace("yak", "");
+		return newString;
 	}
 
 }

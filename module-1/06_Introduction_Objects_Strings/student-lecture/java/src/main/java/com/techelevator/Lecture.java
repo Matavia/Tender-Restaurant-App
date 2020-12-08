@@ -42,7 +42,8 @@ public class Lecture {
 		System.out.println("**********************");
 		System.out.println();
 
-
+			String hello1 = "Hello";
+			String hello2 = "Hello";
 
 		/* Double equals will compare to see if the two variables, hello1 and
 		 * hello2 point to the same object in memory. Are they the same object? */

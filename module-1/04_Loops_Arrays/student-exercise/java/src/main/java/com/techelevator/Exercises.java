@@ -215,7 +215,7 @@ public class Exercises {
 				sum += nums[x];
 			}
 			
-			if(nums[x] == 13) {
+			if(nums[x] == 13 || nums[x-1] == 13) {
 			  sum += 0;
 			  x++;
 			}

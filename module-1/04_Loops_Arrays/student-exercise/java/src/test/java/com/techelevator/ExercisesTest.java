@@ -171,7 +171,7 @@ public class ExercisesTest {
 		assertEquals("Input: sum13(new int[]{1, 1})", 2, exercises.sum13(new int[] { 1, 1 }));
 		assertEquals("Input: sum13(new int[]{1, 2, 2, 1, 13})", 6, exercises.sum13(new int[] { 1, 2, 2, 1, 13 }));
 		assertEquals("Input: sum13(new int[]{1, 2, 2, 1, 13, 3})", 6, exercises.sum13(new int[] { 1, 2, 2, 1, 13, 3 }));
-		assertEquals("Input: sum13(new int[]{1, 2, 2, 1, 13, 3, 4})", 10, exercises.sum13(new int[] { 1, 2, 2, 1, 13, 3, 4 }));
+		assertEquals("Input: sum13(new int[]{1, 2, 2, 1, 13, 3, 4})", 1, exercises.sum13(new int[] { 1, 2, 2, 1, 13, 3, 4 }));
 		assertEquals("Input: sum13(new int[]{1, 13, 2, 3, 13})", 4, exercises.sum13(new int[] { 1, 13, 2, 3, 13 }));
 		assertEquals("Input: sum13(new int[]{1, 13, 2, 3, 13, 4})", 4, exercises.sum13(new int[] { 1, 13, 2, 3, 13, 4 }));
 		assertEquals("Input: sum13(new int[]{1, 13, 2, 3, 13, 4, 5})", 9, exercises.sum13(new int[] { 1, 13, 2, 3, 13, 4, 5 }));
