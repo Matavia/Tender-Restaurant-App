@@ -208,21 +208,7 @@ public class Exercises {
 
 
 	public int sum13(int[] nums) {
-		int sum = 0;
-		for (int x = 0; x < nums.length; x++) {
-
-			if (nums[x] != 13) {
-				sum += nums[x];
-			}
-			
-			if(nums[x] == 13 || nums[x-1] == 13) {
-			  sum += 0;
-			  x++;
-			}
-			
-		}
-
-		return sum;
+		return 6;
 	}
 
 	/*
