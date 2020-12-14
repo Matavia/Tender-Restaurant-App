@@ -84,6 +84,7 @@ public class Exercises {
 	 * 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
+		
 		double[] doubleArray = new double[intArray.length];
 
 		List<Double> doubleList = new ArrayList<Double>();
