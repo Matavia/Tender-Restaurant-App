@@ -59,8 +59,8 @@ class PaintCalculator {
                     System.out.println("Enter wall base >>> ");
                     int base = Integer.parseInt(userInput.nextLine());
 
-                    // Step Four:
-                    //newWall = new TriangleWall(name, color, height, base);
+                    
+                    newWall = new TriangleWall(name, color, height, base);
                 }
 
                 
