@@ -11,7 +11,7 @@ public class BankCustomer implements Accountable{
 	private String name;
 	private String address;
 	private String phoneNumber;
-	List<Accountable> accounts = new ArrayList<Accountable>();
+	List<Accountable> accounts;
 	
 		public BankCustomer (String name, String address, String phoneNumber) {
 		this.name = name;
