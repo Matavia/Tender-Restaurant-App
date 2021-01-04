@@ -1,3 +1,5 @@
+// day 07 - Collections Part 1 - My Solutions
+
 package com.techelevator;
 
 import java.util.ArrayList;

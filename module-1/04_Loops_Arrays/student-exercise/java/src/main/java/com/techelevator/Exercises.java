@@ -1,3 +1,8 @@
+
+// Week 04 - Loops and Arrays My Exercise Solutions
+
+
+
 package com.techelevator;
 
 public class Exercises {

@@ -19,13 +19,15 @@ public class WordCount {
 	 *
 	 */
 	public Map<String, Integer> getCount(String[] words) {
+		
 		Map<String, Integer> output = new HashMap<>();
 
 		if (words != null) {
 			for (String word : words) {
 				if (!output.containsKey(word)) {
 					output.put(word, 1);
-				} else {
+					}
+				 else {
 					output.put(word, output.get(word) + 1);
 				}
 			}
