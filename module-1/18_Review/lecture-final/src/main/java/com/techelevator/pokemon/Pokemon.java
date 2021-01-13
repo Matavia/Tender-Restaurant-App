@@ -34,5 +34,7 @@ public abstract class Pokemon {
 		this.combatPower = combatPower;
 		this.health = maxHealth;
 	}
-	
+	public String toString() {
+		return "look at me";
+	}
 }

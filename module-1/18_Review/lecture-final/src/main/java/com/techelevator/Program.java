@@ -1,10 +1,13 @@
 package com.techelevator;
 
 import java.io.File;
+
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import com.techelevator.pokemon.Pokemon;
+import com.techelevator.CsvLoader;
 
 public class Program {
 
@@ -74,6 +77,9 @@ public class Program {
 		Map<Integer,Pokemon> realPokedex = loader.loadPokedex();
 		
 		// print a menu for them to access pokemon by number
+		for(Map.Entry<Integer,Pokemon> pokemon : realPokedex.entrySet()) {
+		System.out.println(pokemon);
+		}
 
 	}
 }

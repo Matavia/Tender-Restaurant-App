@@ -1,3 +1,132 @@
 Bulbasaur, Smitty
 Eevee, SmashyMcSmash
 Snorlax, Fluffy
+
+
+public feedMoney()
+
+Scanner userMoneyAmount = new Scanner(System.in)
+
+//Prompt to enter money - do not enter $
+
+System.out.println("Enter amount in whole dollars:)
+String amountToFeed = userMoneyAmount.nextLine();
+
+currentMoneyProvided += amountToFeed;
+
+return currentMoneyProvided
+
+public Item convertLineIntoItem(String line) {
+		
+		String[] itemComponents = line.split("\\|");
+		
+		if(itemComponents.length != 4) {
+			return null;
+		}
+		
+		String slotId = itemComponents[0].trim();
+		String itemName = itemComponents[1].trim();
+		BigDecimal price = new BigDecimal(itemComponents[2].trim());
+		String type = itemComponents[3].trim();
+		
+		if(type.toLowerCase().equals("beverages")) {
+			return new Beverages(slotId, itemName, price, type);
+			
+		} else if(type.toLowerCase().equals("chips")) {
+			return new Chips(slotId, itemName, price, type);
+		} else if (type.toLowerCase().equals("candy")){
+			return new Candy(slotId, itemName, price, type);
+		} else if (type.toLowerCase().equals("gum")){
+			return new Gum(slotId, itemName, price, type);
+		} else {
+			return null;
+		
+		}
+	}
+
+// do purchase
+
+				// create sub purchase menu // main menu created via Andrew
+
+				// feed money() within Money class; purpose to confirm whole #'s & update
+				// balance
+				// related to current money provided variable
+
+				// select products DOOZY
+				// create new list from file OR use variables from above
+
+				// display the items
+				// String slotNumber
+				// String itemName
+				// Double purchasePrice
+
+				// userSelection
+
+				// if/else(String userSelection)
+				// not exist, print message & loop to main menu
+				// sold out, print message & loop to main menu
+
+				// dispense
+				// create dispense method to pass through here(put in inventory)
+
+				// finish transaction
+
+				// current money provided
+
+public String selectProduct() {
+
+		Item result = null;
+		String productSelection = null; //slotId
+		do {
+			System.out.println("Please a select a product >>>");
+			try {
+				productSelection = userInput.nextLine();
+				return productSelection;
+}
+
+
+				Item i = inventory.getItemBySlot(productSelection);
+
+				//inventory.getItemByName does not exist
+				
+				if(inventory.isItemSoldOut(productSelection)) {
+					System.out.println("This item is sold out. Please select another item.");
+				}
+				
+			}
+
+// HELPER METHOD
+
+	// inventory.getItem
+	// if/else
+	// if (!freshInventoryList.contains(productSelection)) {
+	// System.out.println("That product does not exist. Please try again.");
+	// loop to purchase menu
+	// }
+	// for (int i = 0; i < freshInventoryList.size(); i++) {
+	// if (freshInventoryList.get(i).equals(productSelection)
+	// && freshInventoryList.get(i).getQuantity() == 0) {
+	// System.out.println("This product is sold out. Please try again.");
+	// }
+//
+	// }
+	// } catch (NumberFormatException nfe) {
+	// System.out.println("Please do something else.");
+	// }
+	// } while (result == null);
+	// return result;
+//	}
+
+for (Item item : this.freshInventoryList) {
+			if (item.getSlotId().equalsIgnoreCase(slotId)) {
+				if (item.getQuantity() == 0) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+
+		return true;
+
+

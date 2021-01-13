@@ -1,6 +1,8 @@
 -- The name and population of all cities in the USA with a population of greater than 1 million people
+SELECT name, population FROM city WHERE countrycode = 'USA' AND population > 1000000;
 
 -- The name and population of all cities in China with a population of greater than 1 million people
+SELECT name, population FROM country WHERE continent = 'China' AND population > 1000000;
 
 -- The name and region of all countries in North or South America
   
