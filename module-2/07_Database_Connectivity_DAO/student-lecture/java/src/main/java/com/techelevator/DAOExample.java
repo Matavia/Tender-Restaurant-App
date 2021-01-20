@@ -23,7 +23,7 @@ public class DAOExample {
 		smallville.setName("Smallville");
 		smallville.setPopulation(42080);
 		
-		dao.save(smallville);
+		dao.create(smallville);
 		
 		City theCity = dao.findCityById(smallville.getId());
 		

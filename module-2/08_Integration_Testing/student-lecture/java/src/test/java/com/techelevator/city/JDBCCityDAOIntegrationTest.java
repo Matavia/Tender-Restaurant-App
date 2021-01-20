@@ -90,7 +90,7 @@ public class JDBCCityDAOIntegrationTest {
 	@Test
 	public void returns_multiple_cities_by_country_code() {
 
-		dao.save(getCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535));
+		dao.create(getCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535));
 		dao.save(getCity("Postgres Point", "North Dakota", TEST_COUNTRY, 65535));
 
 		List<City> results = dao.findCityByCountryCode(TEST_COUNTRY);

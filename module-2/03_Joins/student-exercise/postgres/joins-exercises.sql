@@ -211,3 +211,4 @@ GROUP BY actor.actor_id
 ORDER BY num_of_rentals DESC
 LIMIT 5;
 
+SELECT * FROM staff;

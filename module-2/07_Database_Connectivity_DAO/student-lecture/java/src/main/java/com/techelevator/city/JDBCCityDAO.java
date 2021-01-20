@@ -17,7 +17,7 @@ public class JDBCCityDAO implements CityDAO {
 	}
 
 	@Override
-	public void save(City newCity) {
+	public void create(City newCity) {
 		String sqlInsertCity = "INSERT INTO city(id, name, countrycode, district, population) " +
 							   "VALUES(?, ?, ?, ?, ?)";
 		newCity.setId(getNextCityId());
