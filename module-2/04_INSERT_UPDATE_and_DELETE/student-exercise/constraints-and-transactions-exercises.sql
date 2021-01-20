@@ -107,10 +107,6 @@ WHERE film_id IN (274,494,714,996,1003);
 
 -- 7. Add a copy of "Euclidean PI" to all the stores.
 
---SEARCH 
-SELECT * 
-FROM inventory
-WHERE film_id = 1003;
 
 INSERT INTO inventory(film_id,store_id)
 VALUES(1003,1),(1003,2);
@@ -135,9 +131,6 @@ VALUES(1003,1),(1003,2);
 -- <Yes, because category_id in the film category table is only a foreign key, and not the main primary key - If it were the primary key it wouldn't work;>
    DELETE FROM film_category
    WHERE category_id=17;
-   
-   --
-   
    
 
 -- 11. Retry deleting Mathmagical from the category table, followed by retrying

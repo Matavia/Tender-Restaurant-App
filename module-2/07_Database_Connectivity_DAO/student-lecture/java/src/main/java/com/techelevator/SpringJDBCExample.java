@@ -13,6 +13,7 @@ public class SpringJDBCExample {
 		
 		/* This datasource will be used for creating connections to the database.
 		 * Below, we provide the information required to make database connections */
+		
 		BasicDataSource dvdstoreDataSource = new BasicDataSource();
 		dvdstoreDataSource.setUrl("jdbc:postgresql://localhost:5432/dvdstore");
 		dvdstoreDataSource.setUsername("postgres");
@@ -62,10 +63,15 @@ public class SpringJDBCExample {
 		 * Sequences are often used to generate a unique Id value prior to inserting
 		 * a new record.
 		 */
+		// --------------------------------------------------------------------
 		String sqlGetNextId = "SELECT nextval('seq_city_id')";
+		
 		results = worldJdbcTemplate.queryForRowSet(sqlGetNextId);
+		
 		results.next(); // advances to the first row
+		
 		int id = results.getInt(1); // returns the integer value of the first column (i.e. index 1)
+		
 		System.out.println("New city id: "+id);
 		
 		/*
@@ -73,7 +79,9 @@ public class SpringJDBCExample {
 		 */
 		String sqlCreateNewCity = "INSERT INTO city(id, name, countrycode, district, population) "+
 								  "VALUES(?, ?, ?, ?, ?)";
-		
+		//Runs the SQL statement -- queryForRowSet when you are getting results back
 		worldJdbcTemplate.update(sqlCreateNewCity, id, "Smallville", "USA", "Kansas", 45001);
+		// advance the row set to the first row
+		results.next()
 	}
 }
