@@ -16,11 +16,13 @@ public class App {
 
         while (true) {
             menuSelection = consoleService.printMainMenu();
+            
             if (menuSelection == 1) {
             	Auction[] auctions = auctionService.listAllAuctions();
             	if (auctions != null) {
                     consoleService.printAuctions(auctions);
             	}
+            	
             } else if (menuSelection == 2) {
             	Auction[] auctions = auctionService.listAllAuctions();
                 if (auctions != null) {
