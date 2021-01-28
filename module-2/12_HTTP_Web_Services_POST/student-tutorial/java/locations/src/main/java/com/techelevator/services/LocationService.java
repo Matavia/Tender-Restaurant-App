@@ -4,6 +4,7 @@ import com.techelevator.models.Location;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,18 +30,47 @@ public class LocationService {
     }
 
     public Location add(String CSV) {
-    	// api code here
-	    return null;
+    	Location location = makeLocation(CSV);
+    	if (location == null) {
+    	return null;
+    	}
+    	HttpEntity entity = makeEntity(location);
+    	try {
+	    location = restTemplate.postForObject(BASE_URL, entity,Location.class);
+	    return location;
+    	} catch
+    	(RestClientResponseException ex) {
+    		console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    	}
+    	catch (ResourceAccessException ex) {
+    		console.printError(ex.getMessage());
+    	}
+    	return null;
     }
 
     public void delete(int id) {
-        // api code here
+        restTemplate.delete(BASE_URL + id);
     }
 
     public Location update(String CSV) {
-        // api code here
+    	Location location = makeLocation(CSV);
+    	if (location == null) {
+    	return null;
+    	}
+    	
+    	try {
+        restTemplate.put(BASE_URL + location.getId(), location);
+    	return location;
+    } catch
+	(RestClientResponseException ex) {
+		console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+	}
+    	catch (ResourceAccessException ex) {
+    		console.printError(ex.getMessage());
+    	}
         return null;
     }
+    
 
     private HttpEntity<Location> makeEntity(Location location){
         HttpHeaders headers = new HttpHeaders();

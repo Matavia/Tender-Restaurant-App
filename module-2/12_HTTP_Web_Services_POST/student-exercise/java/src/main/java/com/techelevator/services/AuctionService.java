@@ -66,19 +66,57 @@ public class AuctionService {
     }
 
     public Auction add(String auctionString) {
-        // place code here
+        Auction auction = makeAuction(auctionString);
+        if(auction == null) {
+        	return null;
+        }
+        
+        HttpEntity entity = makeEntity(auction);
+        try {
+        	auction = restTemplate.postForObject(API_URL, entity, Auction.class);
+        	return auction;
+        } catch
+        (RestClientResponseException ex) {
+    		console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    	}
+    	catch (ResourceAccessException ex) {
+    		console.printError(ex.getMessage());
+    	}
         return null;
     }
 
     public Auction update(String auctionString) {
-        // place code here
+       Auction auction = makeAuction(auctionString);
+       HttpEntity entity = makeEntity(auction);
+      
+       if(auction == null) {
+    	   return null;
+       }
+       try {
+    	   restTemplate.put(API_URL +"/"+ auction.getId(), entity);
+    	   return auction;
+    	   
+       }catch
+       (RestClientResponseException ex) {
+   		console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+       } catch (ResourceAccessException ex) {
+	    	console.printError(ex.getMessage());
+	 }
+
         return null;
     }
 
-    public boolean delete(int id) {
-    	// place code here
-    	return false; 
-    }
+    public boolean  delete(int id) {
+    	 try{
+    		 restTemplate.delete(API_URL + "/" + id);
+    		 return true;
+    	 }catch(RestClientResponseException ex) {
+    		 console.printError(ex.getStatusText() + " : " + ex.getStatusText());
+    	 } catch (ResourceAccessException ex) {
+    	    	console.printError(ex.getMessage());
+    	 }
+    return false;
+}
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
         HttpHeaders headers = new HttpHeaders();
