@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/locations")
 public class LocationController {
 
@@ -30,8 +31,21 @@ public class LocationController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Location add(@RequestBody Location location) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Location add(@Valid @RequestBody Location location) {
         return dao.create(location);
     }
-
+    
+    @RequestMapping(path="/{id}", method = RequestMethod.PUT)
+    public Location update( @Valid @RequestBody Location location,@PathVariable int id) throws LocationNotFoundException {
+    	return dao.update(location, id);
+    	
+    	
+    	
+    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable int id) throws LocationNotFoundException {
+     dao.delete(id);
+    }
 }
