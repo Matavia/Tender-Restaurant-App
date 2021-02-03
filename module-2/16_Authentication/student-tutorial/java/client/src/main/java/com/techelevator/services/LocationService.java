@@ -15,11 +15,25 @@ public class LocationService {
     public LocationService(String url) {
         BASE_URL = url;
     }
+    
+    private HttpEntity makeAuthEntity() {
+    	//Authorization: Bearer {AUTH_TOKEN] Header
+    	HttpHeaders headers = new HttpHeaders();
+    	headers.setBearerAuth(AUTH_TOKEN);
+    	HttpEntity entity = new HttpEntity<>(headers);
+    	return entity;
+    	
+    }
 
     public Location getOne(int id) throws LocationServiceException {
         Location location = null;
         try {
-            location = restTemplate.getForObject(BASE_URL + "/" + id, Location.class);
+        	
+        	
+        	
+        	location = restTemplate.exchange(BASE_URL + "/" + id,HttpMethod.GET,makeAuthEntity(), Location.class).getBody();
+        	
+          
         } catch (RestClientResponseException ex) {
             throw new LocationServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
         }
@@ -29,7 +43,11 @@ public class LocationService {
     public Location[] getAll() throws LocationServiceException {
         Location[] locations = null;
         try {
-            locations = restTemplate.getForObject(BASE_URL, Location[].class);
+        	
+        	//Authorization: Bearer {AUTH_TOKEN] Header
+        
+        	
+            locations = restTemplate.exchange(BASE_URL,HttpMethod.GET,makeAuthEntity(), Location[].class).getBody();
         } catch (RestClientResponseException ex) {
             throw new LocationServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
         }
@@ -59,7 +77,7 @@ public class LocationService {
 
     public void delete(int id) throws LocationServiceException {
         try {
-            restTemplate.delete(BASE_URL + id);
+            restTemplate.exchange(BASE_URL + "/" + id,HttpMethod.DELETE,makeAuthEntity(),String.class);
         } catch (RestClientResponseException ex) {
             throw new LocationServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
         }
