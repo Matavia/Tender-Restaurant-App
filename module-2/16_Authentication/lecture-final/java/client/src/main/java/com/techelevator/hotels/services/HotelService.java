@@ -111,7 +111,7 @@ public class HotelService {
   public Hotel getHotel(int id) throws HotelServiceException {
     Hotel hotel = null;
     try {
-      hotel = restTemplate.exchange(BASE_URL + "hotels/" + id, HttpMethod.GET, makeAuthEntity(), Hotel.class).getBody();
+      hotel = restTemplate.exchange(BASE_URL + "hotels/" + id, HttpMethod.GET, makeAuthEntity(), Hotel.class).getBody()hotel.;
     } catch (RestClientResponseException ex) {
       throw new HotelServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
     }
@@ -227,6 +227,7 @@ public class HotelService {
   private HttpEntity makeAuthEntity() {
     HttpHeaders headers = new HttpHeaders();
     headers.setBearerAuth(AUTH_TOKEN);
+    HttpHeaders headers = new HttpHeaders();
     HttpEntity entity = new HttpEntity<>(headers);
     return entity;
   }
