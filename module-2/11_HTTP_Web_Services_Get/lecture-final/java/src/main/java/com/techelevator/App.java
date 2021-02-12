@@ -1,6 +1,10 @@
 package com.techelevator;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import com.techelevator.services.ConsoleService;
+
 import com.techelevator.services.HotelService;
 
 public class App {
@@ -17,7 +21,7 @@ public class App {
         while (menuSelection != 0) {
             menuSelection = consoleService.printMainMenu();
             if (menuSelection == 1) {
-                consoleService.printHotels(hotelService.listHotels());
+                
             } else if (menuSelection == 2) {
                 consoleService.printReviews(hotelService.listReviews());
             } else if (menuSelection == 3) {
@@ -25,7 +29,7 @@ public class App {
             } else if (menuSelection == 4) {
                 consoleService.printReviews(hotelService.getReviewsByHotelId(1));
             } else if (menuSelection == 5) {
-                consoleService.printHotels(hotelService.getHotelsByStarRating(3));
+                System.out.println(hotelService.getRecipe());
             } else if (menuSelection == 6) {
                 System.out.println(hotelService.getWithCustomQuery());
             } else if (menuSelection == 0) {

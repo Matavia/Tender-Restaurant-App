@@ -1,9 +1,13 @@
 package com.techelevator.services;
 
 import com.techelevator.models.Hotel;
+import com.techelevator.models.Recipe;
 import com.techelevator.models.Review;
 
 import java.util.Scanner;
+
+import org.json.JSONArray;
+
 
 public class ConsoleService {
 
@@ -12,7 +16,6 @@ public class ConsoleService {
     public ConsoleService() {
         scanner = new Scanner(System.in);
     }
-
     public int printMainMenu() {
         int menuSelection;
         System.out.println("");
@@ -36,12 +39,12 @@ public class ConsoleService {
         return menuSelection;
     }
 
-    public void printHotels(Hotel[] hotels) {
+    public void printRecipes(Recipe[] recipes) {
         System.out.println("--------------------------------------------");
-        System.out.println("Hotels");
+        System.out.println("Name Of Recipes");
         System.out.println("--------------------------------------------");
-        for (Hotel hotel : hotels) {
-            System.out.println(hotel.getId() + ": " + hotel.getName());
+        for (Recipe recipe : recipes) {
+            System.out.println(recipe.getNameOfRecipe());
         }
     }
 
