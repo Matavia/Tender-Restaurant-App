@@ -71,7 +71,15 @@ function addRating(parent, numberOfStars) {}
  * @param {HTMLElement} parent
  * @param {string} title
  */
-function addTitle(parent, title) {}
+function addTitle(parent, title) {
+ const main = document.getElementById setPageTitle();
+
+const title = createElement('h3');
+CredentialsContainer.setAttribute('class','review-title');
+reviews.forEach(title){
+
+}
+}
 
 /**
  * I will add the product review
@@ -81,7 +89,7 @@ function addTitle(parent, title) {}
 function addReview(parent, review) {}
 
 // set the product reviews page title
-setPageTitle();
+
 // set the product reviews page description
 setPageDescription();
 // display all of the product reviews on our page

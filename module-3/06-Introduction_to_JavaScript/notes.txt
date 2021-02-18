@@ -63,3 +63,50 @@ can dynamically add variables to objects at anytime
 
 var declarations ignore scope blocks
 let bound respects scopes
+
+index: 25;
+length:26;
+
+string.lastIndexOf("red", (string.length - 4))
+
+innerHTML
+
+agi 
+amerisource
+amitech
+anexinet
+archer
+archweb
+nently systems bently
+brio
+cap gemini
+chadin financial
+sygniti 
+ccuylim
+cerconus
+crossbeam
+qurotech
+dellbooni
+allushin
+emoney advisors
+epan
+evolve ip
+fishtown ana
+frontline edu
+guru
+ipipeline
+03 world
+piano
+promptworks
+click
+relay
+rst solutions
+sap
+sei
+sidecar
+think company
+
+Debugger -
+f12
+set the breakpoint and refresh page
+

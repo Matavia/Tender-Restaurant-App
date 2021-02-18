@@ -1,4 +1,7 @@
 // add pageTitle
+const pageTitle = "My Shopping List";
+let groceries = [10];
+
 
 // add groceries
 
