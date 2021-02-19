@@ -60,12 +60,7 @@ function displayReview(review) {
 
 // LECTURE STARTS HERE ---------------------------------------------------------------
 
-// set the product reviews page title
-setPageTitle();
-// set the product reviews page description
-setPageDescription();
-// display all of the product reviews on our page
-displayReviews();
+
 
 /**
  * Take an event on the description and swap out the description for a text box.
@@ -73,10 +68,15 @@ displayReviews();
  * @param {Event} event the event object
  */
 function toggleDescriptionEdit(desc) {
+  // Grab the text box
   const textBox = desc.nextElementSibling;
+  // set the text of the textbox to the current description text
   textBox.value = description;
+  //make the textbox visible by removing the d-none class
   textBox.classList.remove('d-none');
+  //make the <p> invis by adding d-none to its classes
   desc.classList.add('d-none');
+  // put the the cursor in the text box by giving it focus
   textBox.focus();
 }
 
@@ -130,4 +130,73 @@ function resetFormValues() {
 /**
  * I will save the review that was added using the add review from
  */
-function saveReview() {}
+function saveReview() {
+  //get the date from each form control
+  const name = document.getElementById('name').value;
+  const title = document.getElementById('title').value;
+  const review = document.getElementById('review').value;
+  const rating = document.getElementById('rating').value;
+
+  // make a review object
+
+  const newReview = {
+    reviewer:name,
+    title:title,
+    review:review,
+    rating:rating
+    }
+
+    reviews.push(newReview);
+
+    displayReview(newReview);
+
+    showHideForm();
+ }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // set the product reviews page title
+  setPageTitle();
+  // set the product reviews page description
+  setPageDescription();
+  // display all of the product reviews on our page
+  displayReviews();
+
+  //add a click handler to the description
+  const desc = document.querySelector('.description');
+  desc.addEventListener('click', (event) => {
+    toggleDescriptionEdit(event.target);
+    //target - is whatever element is being worked on 
+    //currentTarget - is the element that is handling the event 
+    //currently
+
+  });
+
+  //add keyboard event handlers to the descriptions
+  const inputDesc = document.getElementById('inputDesc');
+  inputDesc.addEventListener('keyup', (event) => {
+    if (event.key === "Enter") {
+      exitDescriptionEdit(event.target, true);
+    } else if (event.key === "Escape") {
+      exitDescriptionEdit(event.target, false);
+    }
+  });
+
+  inputDesc.addEventListener('focusout', (event) => {
+    exitDescriptionEdit(event.target, false);
+
+  });
+
+  const toggleButton = document.getElementById('btnToggleForm');
+  toggleButton.addEventListener('click', (event) => {
+    showHideForm();
+  });
+  const formButton = document.getElementById('btnSaveReview')
+  formButton.addEventListener('click', (event) =>{
+    event.preventDefault();
+    saveReview();
+  
+  })
+
+});
+                                                                   

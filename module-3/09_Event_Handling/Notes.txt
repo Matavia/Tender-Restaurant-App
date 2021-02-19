@@ -1,3 +1,7 @@
+Style for web browser
+
+Event handler is a function
+
 Publisher
 Subscriber
 
