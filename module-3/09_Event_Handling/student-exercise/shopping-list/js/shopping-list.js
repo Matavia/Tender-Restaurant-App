@@ -22,6 +22,48 @@ function setPageTitle() {
   title.innerText = pageTitle;
 }
 
+
+function markCompleted(item) {
+  let icon = item.querySelector('i');
+  if (!item.classList.contains('completed')) {
+    item.classList.add('completed');
+    icon.classList.add('completed');
+  }
+
+}
+function markIncomplete(item) {
+  let icon = item.querySelector('i');
+  icon.classList.remove('completed');
+  item.classList.remove('completed');
+}
+
+function toggleAll() {
+  const items = document.querySelectorAll('li');
+  if (allItemsIncomplete) {
+    items.forEach((item) => {
+      const icon = item.querySelector('i');
+      icon.classList.add('completed');
+      item.classList.add('completed');
+
+    });
+    const button = document.querySelector('.btn');
+    button.innerText = 'Mark All Incomplete'
+    allItemsIncomplete = false;
+  } else {
+    items.forEach((item) => {
+      const icon = item.querySelector('i');
+      icon.classList.remove('completed');
+      item.classList.remove('completed');
+
+    });
+    const button = document.querySelector('.btn');
+    button.innerText = 'Mark All Complete'
+    allItemsIncomplete = true;
+
+
+  }
+}
+
 /**
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
@@ -37,5 +79,29 @@ function displayGroceries() {
   });
 }
 
-setPageTitle();
-displayGroceries();
+document.addEventListener("DOMContentLoaded", () => {
+  setPageTitle();
+  displayGroceries();
+
+  const ul = document.querySelector('ul');
+  ul.addEventListener('click', (event) => {
+    event.preventDefault();
+    markCompleted(event.target);
+
+  });
+
+  ul.addEventListener('dblclick', (event) => {
+    event.preventDefault();
+    markIncomplete(event.target);
+  });
+
+
+  const button = document.querySelector('.btn');
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    toggleAll();
+
+
+  });
+
+});
