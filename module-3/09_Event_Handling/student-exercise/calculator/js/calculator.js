@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const equals = document.querySelector('.equal-sign');
   equals.addEventListener('click', (event) => {
     performOperation();
+    
   });
   // should call the function performOperation
 

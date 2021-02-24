@@ -36,12 +36,49 @@
       </div>
     </div>
 
-    <div
-      class="review"
-      v-bind:class="{ favorited: review.favorited }"
-      v-for="review in reviews"
-      v-bind:key="review.id"
-    >
+    <a ="show-form-button"
+    href="#">
+    Show Form
+    </a>
+
+    <form>
+      <div class ="form-element">
+        <label for="reviewer"> Name:</label>
+        <input id ="reviewer" type="text" />
+      </div>
+      
+        <div class ="form-element">
+        <label for="title"> Title:</label>
+        <input id ="title" v-model ="newReview." />
+      </div>
+
+       <div class ="form-element">
+        <label for="reviewer"> Name:</label>
+        <input id ="reviewer" type="text" />
+      </div>
+  
+
+    <div class="form-element">
+      <label for="rating">Rating:</label>
+      <select id="rating" v-model.number="newReview.rating">
+        <option value="1"> 1 Star</option>
+        <option value="1"> 2 Star</option>
+        <option value="1"> 3 Star</option>
+        <option value="1"> 4 Star</option>
+        <option value="1"> 5 Star</option>
+      </select>
+    </div>
+
+       <div class ="form-element">
+        <label for="review"> Name:</label>
+        <textarea id ="review"></textarea>
+      </div>
+
+      <input type="submit" value="Save">
+      <input type="button" value="Cancel">
+
+      </form>  
+    
       <h4>{{ review.reviewer }}</h4>
       <div class="rating">
         <img

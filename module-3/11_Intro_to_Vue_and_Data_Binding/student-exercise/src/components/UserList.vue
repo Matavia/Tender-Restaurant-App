@@ -11,19 +11,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" id="firstNameFilter"/></td>
-        <td><input type="text" id="lastNameFilter"/></td>
-        <td><input type="text" id="usernameFilter"/></td>
-        <td><input type="text" id="emailFilter"/></td>
+        <td><input type="text" id="firstNameFilter" v-model='filter.firstName'/></td>
+        <td><input type="text" id="lastNameFilter" v-model='filter.lastName'/></td>
+        <td><input type="text" id="usernameFilter" v-model='filter.username'/></td>
+        <td><input type="text" id="emailFilter" v-model='filter.emailAddress'/></td>
         <td>
-          <select id="statusFilter">
+          <select id="statusFilter" v-model='filter.status'>
             <option value="">Show All</option>
             <option value="Active">Active</option>
             <option value="Disabled">Disabled</option>
           </select>
         </td>
       </tr>
-      <!-- user listing goes here -->
+   
+      <tr v-for="(user) in filteredList" v-bind:key='user.username' v-bind:class="{ disabled:user.status ==='Disabled'}">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.emailAddress}}</td>
+        <td>{{user.status}}</td>  
+      </tr>
+          
+      
     </tbody>
   </table>
 </template>
@@ -40,11 +49,42 @@ export default {
         { firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
-      ]
+      ],
+
+      filter: {
+        firstName:'',
+        lastName:'',
+        username:'',
+        emailAddress:'',
+        status:''
+        
+
+      }
+    };
+  },
+
+      computed: {
+        filteredList(){
+
+          let users = this.users;
+          let filter = this.filter;
+          
+           return users = users.filter((user) => 
+            user.firstName.toUpperCase().includes(filter.firstName.toUpperCase()) &&
+            user.lastName.toUpperCase().includes(filter.lastName.toUpperCase()) &&
+            user.username.toUpperCase().includes(filter.username.toUpperCase()) &&
+            user.emailAddress.toUpperCase().includes(filter.emailAddress.toUpperCase()) &&
+            user.status.toUpperCase().includes(filter.status.toUpperCase())
+
+          ); 
+
+        }
+      }
+
     }
-  }
-}
-</script>
+  
+
+    </script>
 
 <style scoped>
 table {
