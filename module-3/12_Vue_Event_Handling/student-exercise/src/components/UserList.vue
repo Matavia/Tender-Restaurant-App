@@ -19,8 +19,8 @@
               type="checkbox"
               id="selectAll"
               value="all"
-              v-model="selectedUserIDs"
-              v-on:click='selectAllUsers'
+              v-model="allItemsSelected"
+              v-on:change='selectAll'
             />
           </td>
           <td>
@@ -199,7 +199,8 @@ export default {
       ],
       showForm: false,
       selectedUserIDs: [],
-      selectAll:'unchecked'
+      allItemsSelected:false
+      
     };
   },
   methods: {
@@ -246,13 +247,12 @@ export default {
       this.selectedUserIDs = [];
     },
 
-    selectAllUsers() {
-      if (this.selectAll === 'unchecked'){
-       this.selectAll = 'checked';
-       this.users.forEach((user) => {
-         this.selectedUserIDs.push(user.id)
-       });
-
+   selectAll() {
+      this.selectedUserIDs = [];
+      if (this.allItemsSelected) {
+        this.users.forEach((user) => {
+          this.selectedUserIDs.push(user.id);
+        });
       }
     }
   },
