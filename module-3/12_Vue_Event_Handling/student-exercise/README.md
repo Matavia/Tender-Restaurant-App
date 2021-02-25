@@ -63,7 +63,7 @@ There are three buttons below the user listing table. Complete the following tas
 - Add a `selectedUserIDs` property that defaults to an empty array.
 - When the `selectedUserIDs` array is empty, the buttons should be disabled.
   - Note: use a computed property named `actionButtonDisabled` for this.
-- When the checkbox for a row is checked, add the user's ID to the `selectedUserIDs` array.
+- When the checkbox for a row is checked, add the user's ID to the `selectedUserIDs` array.n
   - Bind the checked value to if the user's ID is in the `selectedUserIDs` array.
 - Enable Users
   - Sets the status of each selected user to `Active`.
