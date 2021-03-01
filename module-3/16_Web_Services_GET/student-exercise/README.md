@@ -1,6 +1,6 @@
 # Exercises for Web API (GET)
 
-In this exercise, you'll build an application that displays topics, and messages in those topics, for a message board application. Most of the application has been completed. You need to implement a new service object to connect to the web API, and use that service object in the components to pull in data from the API.
+In this exercise, you'll build an application that displays topics, and messages in those topics, for a message board application. Most of the application has been completed. You need to implement a new service object to connect to  the web API, and use that service object in the components to pull in data from the API.
 
 ## Step One: Initialize the project 
 
