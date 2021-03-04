@@ -28,17 +28,41 @@ export default {
   name: "document-detail",
   data() {
     return {
-      content: ""
+      content: "",
     };
   },
-  methods: {
-    saveDocument() {}
-  },
   created() {
-    docsService.get(this.$route.params.id).then(response => {
-      this.$store.commit("SET_ACTIVE_DOCUMENT", response.data);
-    });
-  }
+    docsService
+      .get(this.$route.params.id)
+      .then((response) => {
+        this.$store.commit("SET_ACTIVE_DOCUMENT", response.data);
+      })
+      .catch((error) => {
+        if (error.response.status === 404) {
+          this.$router.push("/404");
+        } else {
+          console.error(error);
+        }
+      });
+  },
+  methods: {
+    saveDocument() {
+      const current = this.$store.state.activeDocument;
+      const doc = {
+        id: current.id,
+        name: current.name,
+        author: current.author,
+        avatar: current.avatar,
+        content: this.content,
+        lastOpened: current.lastOpened,
+      };
+      docsService.update(doc.id, doc).then((response) => {
+        if (response.status === 200) {
+          this.$router.push("/");
+        }
+      });
+    },
+  },
 };
 </script>
 

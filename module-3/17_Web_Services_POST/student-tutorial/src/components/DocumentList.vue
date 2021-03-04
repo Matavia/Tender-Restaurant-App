@@ -34,20 +34,27 @@ import docsService from "../services/DocsService";
 
 export default {
   name: "document-list",
+  created() {
+    this.getDocuments();
+  },
   methods: {
     viewDocument(id) {
       this.$router.push(`/document/${id}`);
     },
-    deleteDocument(id) {},
+    deleteDocument() {
+      docsService.delete(id).then((response) => {
+        if (response.status === 200) {
+          this.getDocuments();
+        }
+      });
+    },
     getDocuments() {
-      docsService.list().then(response => {
+      docsService.list().then((response) => {
         this.$store.commit("SET_DOCUMENTS", response.data);
       });
-    }
+    },
   },
-  created() {
-    this.getDocuments();
-  },
+
   computed: {
     sortedDocs() {
       return this.$store.state.docs
@@ -57,8 +64,8 @@ export default {
             new Date(b.lastOpened.replace("th", "")) -
             new Date(a.lastOpened.replace("th", ""))
         );
-    }
-  }
+    },
+  },
 };
 </script>
 

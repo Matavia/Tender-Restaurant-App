@@ -22,6 +22,7 @@
 <script>
 import moment from "moment";
 import faker from "faker";
+import docsService from "../services/DocsService";
 
 const date = moment(new Date());
 
@@ -35,16 +36,23 @@ export default {
         author: "",
         avatar: faker.image.avatar(),
         content: "",
-        lastOpened: date.format("MMMM Do YYYY")
-      }
+        lastOpened: date.format("MMMM Do YYYY"),
+      },
     };
   },
   methods: {
-    saveDocument() {},
+    saveDocument() {
+      docsService.create(this.document).then((response) => {
+        if (response.status === 201) {
+          this.$router.push("/");
+        }
+      });
+    },
+
     cancel() {
       this.$router.push("/");
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -28,12 +28,19 @@ export default {
   },
   methods: {
     updateMessage() {
+      
       const message = {
         id: this.messageId,
         topicId: this.topicId,
         title: this.title,
         messageText: this.messageText
       };
+      messageService.update(message.id,message)
+      .then((response) => {
+        if(response.status === 200){
+          this.$router.push(`/${message.topicId}`)
+        }
+      })
       // call update in message service
     }
   },

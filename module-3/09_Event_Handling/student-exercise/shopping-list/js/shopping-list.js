@@ -24,8 +24,13 @@ function setPageTitle() {
 
 
 function markCompleted(item) {
+  //select the element
   let icon = item.querySelector('i');
+
+  //check if it is not completed
   if (!item.classList.contains('completed')) {
+    
+    //if not completed, it will apply the complete class to the selected element
     item.classList.add('completed');
     icon.classList.add('completed');
   }
